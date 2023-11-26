@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="SpotifyClone/icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="SpotifyClone/spotifyStyle.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <title>Spotify clone</title>
+    </head>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+
+    <body>
+        <main>
+
+            <div class="sidebar">
+                <div class="logo">
+                    <div class="alt">
+                        <i class='bx bxicon bx-home-alt' title="Home">
+                        </i><span>Home</span>
+                    </div>
+                    <div class="alt">
+                        <i class='bx bxicon bxs-search' title='Search'></i>
+                        <span>Search</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="circlemenu">
+                <div class="menu">
+                    <span class="material-symbols-outlined">
+                        menu
+                    </span>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------------------------------- -->
+            <div class="list">
+                <div class="library">
+                    <div class="lin1" style="position: fixed; background-color: #111;padding-bottom: 5px;">
+
+                        <i class='bx bxs-book-content' class="libraryList" id="toggleSidebarButton"
+                            style="font-size: 45px;margin-top: 5px;"></i>
+                    </div>
+
+                    <div class="list-item">
+                        <img src="SpotifyClone/SpotifyClone/Images/fav.png" alt="fav" class="item-image" id="img1">
+                        <p class="item-name" id="name1">Library</p>
+                    </div>
+
+                    <div class="list-item">
+                        <img src="SpotifyClone/SpotifyClone/Images/playlist1.png" alt="fav" class="item-image"
+                            id="img2">
+                        <p class="item-name" id="name2">My playlist</p>
+                    </div>
+                    <div class="list-item">
+                        <img src="SpotifyClone/SpotifyClone/Images/playlist2.png" alt="fav" class="item-image"
+                            id="img2">
+                        <p class="item-name" id="name2">English</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ----------------------------------------------------------------------------------- -->
+            <div class="playsong" style="z-index: 2;" id="playsong">
+                <div class="playsongCon">
+                    <img src="SpotifyClone/SpotifyClone/Images/fav.png" alt="">
+                    <div class="songdetails">
+                        <p id="title">singname</p>
+                        <span id="artist">artist</span>
+
+                    </div>
+                    <div class="like">
+                        <i class='bx bx-heart' title="Save to library" id="heart"></i>
+                    </div>
+                </div>
+                <div class="controls">
+
+                    <div class="con1">
+                        <i class="fas fa-solid fa-shuffle" title="Shuffle" id="shuffle"></i>
+
+                        <i class="fa-solid fa-backward-step" title="Previous" id="prev" style="font-size: 23px;"></i>
+
+                        <i class="fa fa-solid fa-circle-play" title="Play/Pause" id="play"></i>
+
+
+                        <i class=" fa-solid fa-forward-step" title="Next" id="next" style="font-size: 23px;"></i>
+                        <i class="fas fa-solid fa-repeat" id="repeat"></i>
+
+                    </div>
+                    <div class="progress">
+                        <p id="currentTime">0:00</p>
+                        <input type="range" name="" id="progress" value="0" min="0" max="100">
+                        <p id="totalDuration">0:00</p>
+                    </div>
+
+                </div>
+                <div class="extracontrols">
+                    <i class='bx bxs-speaker' title="Now Playing View"></i>
+                    <i class='bx bxs-playlist' title="Queue"></i>
+                    <i class='bx bx-devices' title="Connect to a device"></i>
+                    <div class="volume">
+                        <i class='bx bx-volume-full' title="Mute"></i>
+                        <input type="range" value="100" id="progressVol" min="0" max="100">
+                    </div>
+                    <i class="fa fa-xmark" id="xmark"></i>
+                </div>
+
+            </div>
+            <div class="responsivePlaysong" id="responsivePlaysong">
+                <div class="songdetails1">
+                    <img src="SpotifyClone/SpotifyClone/Images/fav.png" alt="" width="40px">
+                    <div class="d">
+                        <p>song Nmae</p>
+                        <span>artist</span>
+                    </div>
+                </div>
+                <div class="songcontrols">
+                    <i class='fas bx bxs-speaker' title="Now Playing View"></i>
+                    <i class='fas bx bx-heart' title="Save to library" id="heart"></i>
+                    <i class="fa fa-solid fa-circle-play" title="Play/Pause" id="play"></i>
+                    <i class="fas fa-solid fa-forward-step" title="Next" id="next"></i>
+                    <i class="fa fa-xmark" id="xmark1"></i>
+                </div>
+            </div>
+
+            <div class="mainContainer">
+                <nav>
+                    <div class="spotifyLogo">
+                        <i class="fa-brands fa-spotify"></i>
+                        <p>Spotify</p>
+                        <span>Clone</span>
+                    </div>
+                    <div class="forwordback">
+                        <i class="fas fa-solid fa-angle-left"></i>
+                        <i class="fas fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="user">
+                        <p>Explore Premium</p>
+                        <i class="fas fa-solid fa-bell"></i>
+                        <i class="fas fa-solid fa-users"></i>
+                        <i class="fas fa-solid fa-user"></i>
+                    </div>
+                </nav>
+
+                <div class="slider">
+                    <div class="innerslide">
+                        <img src="SpotifyClone/SpotifyClone/Images/taylor.png" alt="">
+                        <div class="imgdetals">
+                            <p id="playlist">#playList</p>
+                            <p class="p1">Taylor Swift</p>
+                            <span>1989 (Taylor's Version)</span>
+                            <div class="btn">
+                                <button>play</button>
+                                <button id="follow">Follow</button>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--play list container--------------------------------------------->
+                <div class="playlistcon" id="playlistCon">
+                    <div class="headContainer">
+                        <img src="SpotifyClone/SpotifyClone/Images/fav.png" alt="">
+                        <div class="det">
+                            <span>playlist</span>
+                            <p>Liked Songs</p>
+                            <span>userName 35songs</span>
+                        </div>
+                    </div>
+
+                    <div class="songList">
+                        <div class="playlistconControls">
+                            <div class="div1">
+                                <i class="fa fa-play" id="play1"></i>
+                            </div>
+                            <i class="fa fa-solid fa-shuffle" title="Shuffle" id="shuffle"></i>
+                            <i class="fa fa-solid fa-download" id="downlode"></i>
+                        </div>
+
+                        <div class="searchDetails">
+                            <i class="fa fa-solid fa-magnifying-glass " id="searchicon"></i>
+                            <div class="date">
+                                <span>Dateadded</span> <i class="fa fa-solid fa-list"></i>
+                            </div>
+                        </div>
+                        <input type="search" name="search" id="search">
+
+                    </div>
+                    <div class="songlist1" onclick="">
+                        <table>
+                            <tr class="heading">
+                                <th>#</th>
+                                <th>Song</th>
+                                <th>Album</th>
+                                <th><i class="fa-solid fa-clock"></i>
+                                </th>
+                            </tr>
+                            <tr onclick="playSong1(0)">
+                                <td class="songimgtd" id="songimgtd"><img src="SpotifyClone/Images/Believer.png" alt="">
+                                </td>
+                                <td id="songNum" class="songNum1">
+                                    <audio src="music/Believer.mp4"></audio>
+                                    Believer
+                                </td>
+                                <td id="song">Imagine Dragons</td>
+                                <td>3:25</td>
+                            </tr>
+                            <tr onclick="playSong1(1)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Alone.png" alt="">
+                                <td id="songNum" class="songNum1">
+
+                                    Alone
+                                </td>
+                                <td id="song">Alan Walker</td>
+                                <td>2:40</td>
+                            </tr>
+                            <tr onclick="playSong1(2)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Closer.jpeg" alt="">
+                                <td id="songNum" class="songNum1">
+
+                                    Closer
+                                </td>
+                                <td id="song">Chainsomker</td>
+                                <td>4:04</td>
+                            </tr>
+                            <tr onclick="playSong1(3)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/DARKSIDE.jpg" alt="">
+                                <td id="songNum" class="songNum1">
+                                    DARKSIDE
+                                </td>
+                                <td id="song">Neoni</td>
+                                <td>2:48</td>
+                            </tr>
+                            <tr onclick="playSong1(4)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Faded.jpg" alt="">
+                                <td id="songNum" class="songNum1">
+                                    Faded
+                                </td>
+                                <td id="song">Alan Walker</td>
+                                <td>3:32</td>
+                            </tr>
+                            <tr onclick="playSong1(5)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Hymn.png" alt="">
+                                <td id="songNum" class="songNum1">
+                                    Hymn for the Weekend
+                                </td>
+                                <td id="song">ColdPlay</td>
+                                <td>4:18</td>
+                            </tr>
+                            <tr onclick="playSong1(6)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/let me.png" alt="">
+                                <td id="songNum" class="songNum1">
+                                    let Me Down Slowly
+                                </td>
+                                <td id="song">Alec Benjamin</td>
+                                <td>2:49</td>
+                            </tr>
+                            <tr onclick="playSong1(7)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Shape of U.png" alt="">
+                                <td id="songNum" class="songNum1">
+                                    Shape of you
+                                </td>
+                                <td id="song">Ed Sheeran</td>
+                                <td>3:53</td>
+                            </tr>
+                            <tr onclick="playSong1(8)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/The Drum.jpg" alt="">
+                                <td id="songNum" class="songNum1">
+                                    The Drum
+                                </td>
+                                <td id="song">Alan walker</td>
+                                <td>3:09</td>
+                            </tr>
+                            <tr onclick="playSong1(9)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/the nights.png" alt="">
+                                <td id="songNum" class="songNum1">
+                                    The Nights
+                                </td>
+                                <td id="song">Avicii</td>
+                                <td>2:56</td>
+                            </tr>
+                            <tr onclick="playSong1(10)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/The Spectre.jpg" alt="">
+                                <td id="songNum" class="songNum1">
+                                    The Spectre
+                                </td>
+                                <td id="song">Alan walker</td>
+                                <td>3:13</td>
+                            </tr>
+                            <tr onclick="playSong1(10)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Believer.png" alt="">
+                                <td id="songNum" class="songNum1">
+                                    The Thunder
+                                </td>
+                                <td id="song">Imagine Dragons</td>
+                                <td>3:07</td>
+                            </tr>
+                            <tr onclick="playSong1(10)">
+                                <td class="songimgtd"><img src="SpotifyClone/Images/Toxic.png" alt="">
+                                <td id="songNum" class="songNum1">
+                                    Toxic
+                                </td>
+                                <td id="song">BoyWithUke</td>
+                                <td>2:48</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-------------------------------------------------------------->
+                <h2 style="padding: 10px;">Made for user</h2>
+                <div class="madeForUser">
+
+                    <div class="list1" id="favSongs">
+                        <img src="SpotifyClone/Images/fav.png" alt="">
+                        <p>Liked Songs</p>
+
+                        <button class="image-button" id="favPlaylist"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/playlist1.png" alt="" width="200px">
+                        <p>songname</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/playlist2.png" alt="" width="200px">
+                        <p>songname</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                </div>
+                <h2 style="padding: 10px;">Trending now</h2>
+                <div class="madeForUser">
+
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/taylor.png" alt="">
+                        <p>Taylor swift</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/party hits.png" alt="" width="200px">
+                        <p>Part Hist</p>
+                        <span>By spotify</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/alec benjamin.png" alt="" width="200px">
+                        <p>Alec Benjamin</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                </div>
+                <h2 style="padding: 10px;">Fresh new Music</h2>
+                <div class="madeForUser">
+
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/mahes.png" alt="">
+                        <p>Gunturu Karam</p>
+                        <span>S S Thman</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/leo.jpeg" alt="" width="200px">
+                        <p>LEO</p>
+                        <span>Anirudh</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/mega hit.png" alt="" width="200px">
+                        <p>Mega Hit mix</p>
+
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/the nights.png" alt="" width="200px">
+                        <p>The nights</p>
+                        <span>Avicii</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/alan-walker.jpeg" alt="" width="200px">
+                        <p>alan-walker</p>
+
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/sad hour.png" alt="" width="200px">
+                        <p>Sad hour</p>
+                        <span>Chance pena</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/playlist2.png" alt="" width="200px">
+                        <p>My playList</p>
+                        <span>#playlist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+
+                </div>
+                <h2 style="padding: 10px;">Your favorite Artist</h2>
+                <div class="madeForUser">
+
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/Anirudh-Ravichander.jpg" alt="" style="border-radius: 50%;">
+                        <p>Anirudh</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/alan-walker.jpeg" alt="" width="200px"
+                            style="border-radius: 50%;">
+                        <p>Alan walker</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/alec benjamin.png" alt="" width="200px"
+                            style="border-radius: 50%;">
+                        <p>Alec Benjamin</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/ar-rahman-.jpg" alt="" width="200px" style="border-radius: 50%;">
+                        <p>Ar Rahman</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/sid-sriram.jpg" alt="" width="200px" style="border-radius: 50%;">
+                        <p>Sid SriRam</p>
+                        <span>artist</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                </div>
+                <h2 style="padding: 10px;">Uniquely Yours</h2>
+                <div class="madeForUser">
+
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/repeat.png" alt="">
+                        <p>On Repeat</p>
+                        <span>songs you love</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/capsule.png" alt="">
+                        <p>On Repeat</p>
+                        <span>songs you love</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="list1">
+                        <img src="SpotifyClone/Images/rewind.png" alt="">
+                        <p>On Repeat</p>
+                        <span>songs you love</span>
+                        <button class="image-button"><i class="fa-solid fa-play"></i></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </body>
+    <script src="spotifyCloneScript.js">
+
+    </script>
+    <style>
+
+    </style>
+
+</html>
